@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Votaciones Solteros</title>
+    <style>
+        body {
+            font-family: "Helvetica Neue", Arial, sans-serif;
+            background-color: #f0f0f0;
+            text-align: center;
+        }
+        h1 {
+            font-size: 28px;
+            color: #333;
+        }
+        .pop-button {
+            background-color: #007AFF;
+            color: #fff;
+            border: none;
+            padding: 15px 30px;
+            font-size: 24px;
+            cursor: pointer;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Votaciones Solteros</h1>
+    <button class="pop-button" onclick="iniciarVotacion()">Votar</button>
+
+    <script>
+        function iniciarVotacion() {
+            let button = document.querySelector(".pop-button");
+            button.style.transform = "scale(1.05)";
+            setTimeout(function() {
+                button.style.transform = "scale(1)";
+                window.location.href = "opciones.html";
+            }, 200);
+        }
+    </script>
+</body>
+</html>

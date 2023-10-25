@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Opciones de Votación</title>
+    <style>
+        body {
+            font-family: "Helvetica Neue", Arial, sans-serif;
+            background-color: #f0f0f0;
+            text-align: center;
+        }
+        h1 {
+            font-size: 28px;
+            color: #333;
+        }
+        .party {
+            background-color: #fff;
+            border: 2px solid #ddd;
+            padding: 15px 30px;
+            font-size: 24px;
+            cursor: pointer;
+            margin: 10px;
+            border-radius: 8px;
+        }
+        .party.selected {
+            background-color: #4CAF50;
+            color: #fff;
+        }
+        .confirm-button {
+            background-color: #007AFF;
+            color: #fff;
+            border: none;
+            padding: 15px 30px;
+            font-size: 24px;
+            cursor: pointer;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Selecciona un Partido</h1>
+    <div class="party" onclick="seleccionarPartido(this)">Partido 1</div>
+    <div class="party" onclick="seleccionarPartido(this)">Partido 2</div>
+    <div class="party" onclick="seleccionarPartido(this)">Partido 3</div>
+    <button class="confirm-button" onclick="confirmarVoto()">Confirmar</button>
+
+    <script>
+        let partidoSeleccionado = null;
+
+        function seleccionarPartido(element) {
+            if (partidoSeleccionado) {
+                partidoSeleccionado.classList.remove("selected");
+            }
+            partidoSeleccionado = element;
+            partidoSeleccionado.classList.add("selected");
+        }
+
+        function confirmarVoto() {
+            if (!partidoSeleccionado) {
+                alert("Por favor, selecciona un partido antes de confirmar.");
+            } else {
+                // Envía la respuesta a la consola
+                console.log("Voto confirmado para " + partidoSeleccionado.innerText);
+                
+                let button = document.querySelector(".confirm-button");
+                button.style.transform = "scale(1.05)";
+                setTimeout(function() {
+                    button.style.transform = "scale(1)";
+                    window.location.href = "confirmacion.html";
+                }, 200);
+            }
+        }
+    </script>
+</body>
+</html>
